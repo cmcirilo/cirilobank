@@ -1,19 +1,19 @@
 <section class="container">
-    <form class="form">
+    <form class="form" (ngSubmit)="transfer()">
         <h2 class="form__title">New Transfer</h2>
 
         <div class="form-field">
             <label class="form-field__label" for=" valor">Value</label>
-            <input class="form-field__input" id="valor" type="text">
+            <input class="form-field__input" id="value" type="text" [(ngModel)]="value" name="value">
         </div>
 
         <div class="form-field">
             <label class="form-field__label" for="destino">Target</label>
-            <input class="form-field__input" id="valor" type="text">
+            <input class="form-field__input" id="target" type="text" [(ngModel)]="target" name="target">
         </div>
 
         <div class="button-wrapper">
-            <button class="button">Transfer</button>
+            <button class="button" type="submit">Transfer</button>
         </div>
 
     </form>
