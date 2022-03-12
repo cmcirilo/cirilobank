@@ -1,1 +1,4 @@
-<app-new-transfer></app-new-transfer>
+<app-new-transfer (emitTransfer)="receiveTransfer($event)"></app-new-transfer>
+
+<p>Value: {{ transfer?.value}} </p>
+<p>Target: {{ transfer?.target}}</p>

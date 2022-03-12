@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cirilobank';
+  transfer: any;
+
+  receiveTransfer($event) {
+    console.log($event);
+    this.transfer = $event;
+  }
 }
