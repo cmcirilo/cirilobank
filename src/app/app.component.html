@@ -1,3 +1,7 @@
-<app-new-transfer (emitTransfer)="receiveTransfer($event)"></app-new-transfer>
-
-<app-statement></app-statement>
+<header>
+    <a routerLink="statement">CiriloBank</a>
+    <a routerLink="new-transfer" routerLinkActive="active">New Transfer</a>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>

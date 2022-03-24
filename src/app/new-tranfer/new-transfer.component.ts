@@ -1,30 +1,30 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { Transfer } from "./../models/transfer.model";
+import { TransferService } from "./../services/transfer.service";
 
 @Component({
-    selector: 'app-new-transfer',
-    templateUrl: './new-transfer.component.html',
-    styleUrls: ['./new-transfer.component.scss']
-
+    selector: "app-new-transfer",
+    templateUrl: "./new-transfer.component.html",
+    styleUrls: ["./new-transfer.component.scss"],
 })
 export class NewTransferComponent {
-
-    @Output() emitTransfer = new EventEmitter<any>();
-
     value: number;
     target: number;
 
+    constructor(private transferService: TransferService, private router: Router) { }
+
     transfer() {
-        console.log('Transfer Requested');
+        console.log("Transfer Requested");
 
-        const valueToEmit = { value: this.value, target: this.target };
-        this.emitTransfer.emit(valueToEmit);
+        const transfer: Transfer = { value: this.value, target: this.target };
 
-        this.resetFields();
+        this.transferService.add(transfer).subscribe(
+            (transfer) => {
+                console.log(transfer);
+                this.router.navigateByUrl('statement');
+            },
+            (error) => console.error(error)
+        );
     }
-
-    resetFields() {
-        this.value = 0;
-        this.target = 0;
-    }
-
 }

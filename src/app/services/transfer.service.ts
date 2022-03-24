@@ -23,10 +23,10 @@ export class TransferService {
     return this.httpClient.get<Transfer[]>(this.url);
   }
 
-  add(transfer: any) {
+  add(transfer: Transfer) {
     this.hidrate(transfer);
 
-    this.transfersList.push(transfer);
+    return this.httpClient.post<Transfer>(this.url, transfer);
   }
 
   hidrate(transfer: any) {

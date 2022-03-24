@@ -12,7 +12,4 @@ export class AppComponent {
 
   constructor(private transferService: TransferService) { }
 
-  receiveTransfer($event) {
-    this.transferService.add($event);
-  }
 }
