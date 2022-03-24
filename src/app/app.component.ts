@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferService } from './services/transfer.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,9 @@ export class AppComponent {
   title = 'cirilobank';
   transfers: any[] = [];
 
+  constructor(private transferService: TransferService) { }
+
   receiveTransfer($event) {
-    const transfer = { ...$event, date: new Date() };
-    this.transfers.push(transfer);
+    this.transferService.add($event);
   }
 }
