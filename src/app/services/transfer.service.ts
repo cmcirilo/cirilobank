@@ -8,16 +8,9 @@ import { Transfer } from '../models/transfer.model';
 })
 export class TransferService {
 
-  private transfersList: any[];
   private url = 'http://localhost:3000/transfers';
 
-  constructor(private httpClient: HttpClient) {
-    this.transfersList = [];
-  }
-
-  get transfers() {
-    return this.transfersList;
-  }
+  constructor(private httpClient: HttpClient) { }
 
   list(): Observable<Transfer[]> {
     return this.httpClient.get<Transfer[]>(this.url);
